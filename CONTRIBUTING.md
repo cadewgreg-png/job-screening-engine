@@ -20,5 +20,6 @@ repository's private vulnerability reporting form instead of a public issue.
 4. Confirm that the Python 3.11, Python 3.14, and CodeQL checks pass.
 5. Resolve every review conversation before merge.
 
-The repository uses linear history and rebase merging. Feature branches are
-retained unless their owner intentionally removes them.
+The repository uses linear history, signed commits on `main`, and squash
+merging. Feature branches are retained unless their owner intentionally
+removes them.
