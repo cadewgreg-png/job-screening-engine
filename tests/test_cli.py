@@ -21,8 +21,14 @@ class CliTests(unittest.TestCase):
             exit_code = main(["validate"])
 
         self.assertEqual(exit_code, 0)
-        self.assertIn("Criteria valid:", output.getvalue())
-        self.assertIn("No live job search was performed.", output.getvalue())
+        summary = output.getvalue()
+        self.assertIn("Criteria valid.", summary)
+        self.assertIn("Guaranteed base salary floor: configured", summary)
+        self.assertIn("Allowed locations: 2 configured", summary)
+        self.assertIn("No live job search was performed.", summary)
+        self.assertNotIn("$60,000", summary)
+        self.assertNotIn("Remote (United States)", summary)
+        self.assertNotIn(str(REPOSITORY_ROOT), summary)
 
     def test_missing_config_returns_failure(self) -> None:
         output = io.StringIO()

@@ -143,12 +143,9 @@ def _print_fit_score(prefix: str, candidate: JobCandidate, score: FitScore) -> N
     print(f"- Location/culture: {score.location_culture:.1f}")
 
 
-def _print_criteria_summary(criteria: Criteria, config_path: Path) -> None:
-    print(f"Criteria valid: {config_path}")
+def _print_criteria_summary(criteria: Criteria, _config_path: Path) -> None:
+    print("Criteria valid.")
     print(f"Target role families: {len(criteria.target_roles)}")
-    print(
-        "Guaranteed base salary floor: "
-        f"${criteria.minimum_guaranteed_base_salary_usd:,}"
-    )
-    print("Allowed locations: " + "; ".join(criteria.allowed_locations))
+    print("Guaranteed base salary floor: configured")
+    print(f"Allowed locations: {len(criteria.allowed_locations)} configured")
     print("No live job search was performed.")
