@@ -1,0 +1,31 @@
+{
+  "company": "Example Company",
+  "culture_fit": "acceptable",
+  "culture_fit_evidence": [
+    "The example posting emphasizes client service and cross-team collaboration"
+  ],
+  "date_found": "2026-08-15",
+  "title": "Customer Success Manager",
+  "target_role_family": "Customer Success Manager",
+  "guaranteed_base_salary_usd": 72000,
+  "commission_only": false,
+  "requires_active_license": false,
+  "location_category": "Remote",
+  "matched_required_skills": [
+    "Account management",
+    "Customer onboarding",
+    "Stakeholder communication"
+  ],
+  "posting_verified_live": true,
+  "required_skills": [
+    "Account management",
+    "Customer onboarding",
+    "Stakeholder communication"
+  ],
+  "role_category": "Customer success",
+  "seniority_fit": "strong",
+  "seniority_fit_evidence": [
+    "The example role is a non-director individual-contributor position"
+  ],
+  "source_url": "https://careers.example.com/jobs/customer-success-manager"
+}

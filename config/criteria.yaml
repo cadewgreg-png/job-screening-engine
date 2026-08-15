@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "target_roles": [
+    "Account Manager",
+    "Customer Success Manager",
+    "Relationship Manager"
+  ],
+  "minimum_guaranteed_base_salary_usd": 60000,
+  "allowed_locations": [
+    "Hybrid",
+    "Remote"
+  ],
+  "excluded_role_attributes": {
+    "commission_only": true,
+    "requires_active_license": true,
+    "seniority_titles": [
+      "Director",
+      "Executive"
+    ],
+    "role_categories": [
+      "Door-to-door sales",
+      "Seasonal contract"
+    ]
+  }
+}
