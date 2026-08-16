@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible problem using fictional or redacted data only.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the project. Do not include real job-search records, personal information, credentials, or unresolved vulnerability details.
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened?
+      description: Describe the observed and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Use only fictional or fully redacted example data.
+      placeholder: |
+        1. Run ...
+        2. Provide the fictional input ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: Python 3.14.6
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy and security confirmation
+      options:
+        - label: I used only fictional or fully redacted data and included no credentials or personal information.
+          required: true
+        - label: This report does not disclose an unresolved security vulnerability.
+          required: true

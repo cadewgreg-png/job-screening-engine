@@ -6,6 +6,7 @@ Describe what changed and why.
 
 - [ ] I ran `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v`.
 - [ ] New behavior is covered by tests or does not require a code test.
+- [ ] I ran `python3 scripts/check_repository_hygiene.py`.
 - [ ] GitHub Actions references remain pinned to full commit SHAs.
 
 ## Privacy and security
