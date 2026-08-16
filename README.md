@@ -45,11 +45,12 @@ Run the tests:
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
 ```
 
-CI runs the test suite on Python 3.11 and Python 3.14. Workflow dependencies
-are pinned to immutable commit SHAs, repository permissions are read-only, and
-checkout credentials are not persisted. A separate repository-hygiene check
-rejects tracked local-data directories, environment files, credentials, logs,
-spreadsheets, and database files.
+CI runs the test suite on Python 3.11 and Python 3.14 using the Ubuntu 24.04
+runner image. Workflow dependencies are pinned to immutable commit SHAs,
+repository permissions are read-only, and checkout credentials are not
+persisted. A separate repository-hygiene check rejects tracked local-data
+directories, environment files, credentials, logs, spreadsheets, and database
+files.
 
 ## Configuration
 
