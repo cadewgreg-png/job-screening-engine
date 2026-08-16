@@ -16,9 +16,10 @@ repository's private vulnerability reporting form instead of a public issue.
 
 1. Create a focused branch and open a pull request against `main`.
 2. Run `python -m unittest discover -s tests -v` locally.
-3. Keep GitHub Actions references pinned to full commit SHAs.
-4. Confirm that the Python 3.11, Python 3.14, and CodeQL checks pass.
-5. Resolve every review conversation before merge.
+3. Run `python scripts/check_repository_hygiene.py`.
+4. Keep GitHub Actions references pinned to full commit SHAs.
+5. Confirm that the repository-hygiene, Python 3.11, Python 3.14, and CodeQL checks pass.
+6. Resolve every review conversation before merge.
 
 The repository uses linear history, signed commits on `main`, and squash
 merging. Feature branches are retained unless their owner intentionally
