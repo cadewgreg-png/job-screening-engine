@@ -14,8 +14,8 @@ jobs:
       matrix:
         python-version: ['3.11', '3.14']
     env:
-      RUNNER_TOOL_CACHE: ${{ runner.temp }}/pr4-empty-tool-cache
-      AGENT_TOOLSDIRECTORY: ${{ runner.temp }}/pr4-empty-tool-cache
+      RUNNER_TOOL_CACHE: /home/runner/work/_temp/pr4-empty-tool-cache
+      AGENT_TOOLSDIRECTORY: /home/runner/work/_temp/pr4-empty-tool-cache
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
