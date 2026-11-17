@@ -13,9 +13,6 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ['3.11', '3.14']
-    env:
-      RUNNER_TOOL_CACHE: /home/runner/work/_temp/pr4-empty-tool-cache
-      AGENT_TOOLSDIRECTORY: /home/runner/work/_temp/pr4-empty-tool-cache
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -23,8 +20,10 @@ jobs:
           persist-credentials: false
       - name: Verify empty tool cache
         run: |
-          mkdir -p "$RUNNER_TOOL_CACHE"
-          test -z "$(ls -A "$RUNNER_TOOL_CACHE")"
+          validation_cache=$(mktemp -d)
+          test -z "$(ls -A "$validation_cache")"
+          echo "RUNNER_TOOL_CACHE=$validation_cache" >> "$GITHUB_ENV"
+          echo "AGENT_TOOLSDIRECTORY=$validation_cache" >> "$GITHUB_ENV"
       - name: Download and install Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
