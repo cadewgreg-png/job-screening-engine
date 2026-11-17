@@ -1,0 +1,38 @@
+name: PR4 fresh Python download validation
+on:
+  push:
+    branches: [validation/pr4-cold-python-20261117]
+permissions:
+  contents: read
+jobs:
+  cold-download:
+    name: Fresh Python ${{ matrix.python-version }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.14']
+    env:
+      RUNNER_TOOL_CACHE: ${{ runner.temp }}/pr4-empty-tool-cache
+      AGENT_TOOLSDIRECTORY: ${{ runner.temp }}/pr4-empty-tool-cache
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: df79423e435218975ea817f66e59844bb8c9ddf3
+          persist-credentials: false
+      - name: Verify empty tool cache
+        run: |
+          mkdir -p "$RUNNER_TOOL_CACHE"
+          test -z "$(ls -A "$RUNNER_TOOL_CACHE")"
+      - name: Download and install Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Verify installed interpreter and run checks
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -c 'import os,sys; assert os.path.realpath(sys.executable).startswith(os.environ["RUNNER_TOOL_CACHE"] + "/"), sys.executable; print(sys.version); print(sys.executable)'
+          python -m unittest discover -s tests -v
+          python scripts/check_repository_hygiene.py
