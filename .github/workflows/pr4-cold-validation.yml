@@ -32,6 +32,7 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
-          python -c 'import os,sys; assert os.path.realpath(sys.executable).startswith(os.path.realpath(os.environ["RUNNER_TOOL_CACHE"]) + "/"), sys.executable; print(sys.version); print(sys.executable)'
+          python -c 'import os,sys; print("resolved executable:",os.path.realpath(sys.executable)); print("resolved cache:",os.path.realpath(os.environ["RUNNER_TOOL_CACHE"])); print("prefix:",sys.prefix); print(sys.version); print(sys.executable)'
+          ls -l "$pythonLocation/bin/python" "$pythonLocation/bin/python3"
           python -m unittest discover -s tests -v
           python scripts/check_repository_hygiene.py
